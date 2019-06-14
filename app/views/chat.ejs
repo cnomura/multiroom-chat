@@ -42,8 +42,6 @@
 </head>
 
 <body>
-
-
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -77,7 +75,6 @@
 			<div class="col-md-10" id="dialogos">
 			</div>
 			<div class="col-md-1"></div>
-
 		</div>
 
 		<div class="row participantes" id="participantes" style="display:none">
@@ -85,14 +82,12 @@
 			<div class="col-md-10" id="pessoas">
 			</div>
 			<div class="col-md-1"></div>
-
 		</div>
 	</div>
 
 	<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 		<div class="container">
 			<div class="panel-body campo-mensagem">
-
 				<div class="col-md-12">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Mensagem" id="mensagem">
@@ -116,7 +111,6 @@
 		var socket = io('http://localhost');
 
 		$('#enviar_mensagem').click(function () {
-
 			socket.emit(
 				'msgParaServidor',
 				{
@@ -130,10 +124,8 @@
 			$('#apelido_atualizado_nos_clientes').val(1);
 		});
 
-
 		socket.on('msgParaCliente', function (data) {
 			var html = '';
-
 			html += '<div class="dialogo">';
 			html += '<h4>' + data.apelido + '</h4>';
 			html += '<p>' + data.mensagem + '</p>';
@@ -144,10 +136,8 @@
 			window.scrollTo(0, document.body.scrollHeight);
 		});
 
-
 		socket.on('participantesParaCliente', function (data) {
 			var html = '';
-
 			html += '<span class="participante">';
 			html += '<img src="images/ico_usuario.png">';
 			html += data.apelido;
